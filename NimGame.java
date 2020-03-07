@@ -33,13 +33,14 @@ class NimGame{
     int item_c = pile_c;
     total_items = pile_a + pile_b + pile_c;
  
-//P5: Create the user & Scenerios
+//P5: Create the user interface & Scenerios
     System.out.print("A: " + pile_a);
     System.out.print(" B: " + pile_b);
     System.out.print(" C: " + pile_c);
     System.out.println(); //Will Skip to the next Line
     
     while (true){
+    //User 1 Interface  
     if(turn %2 == 0){
       System.out.println(user_one + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
@@ -49,8 +50,8 @@ class NimGame{
         String pile_1 = myScanner.nextLine();
         int pile_num1 = Integer.parseInt(pile_1);
         pile_a = pile_a - pile_num1;
+        total_items = pile_a + pile_b + pile_c;
         turn++;
-        break;
       }
       // Scenerio 2: User 1 picks pile a and removes a #
       else if (reader.equals("B")||reader.equals("b")){
@@ -58,20 +59,51 @@ class NimGame{
         String pile_2 = myScanner.nextLine();
         int pile_num2 = Integer.parseInt(pile_2);
         pile_b = pile_b - pile_num2; 
+        total_items = pile_a + pile_b + pile_c;
         turn++;
-        break;
       }
-      // Scenerio 3: User 1 picks pile 
+      // Scenerio 3: User 1 picks pile c & removes a #
       else if (reader.equals("C")||reader.equals("c")){
         System.out.println("How many to remove from pile C");
         String pile_3 = myScanner.nextLine();
         int pile_num3 = Integer.parseInt(pile_3);
         pile_c = pile_c - pile_num3;
+        total_items = pile_a + pile_b + pile_c;
         turn++;
-        break;
       }     
     }
-    
+    //User 2 interface
+    else if (turn%2 != 0){
+      System.out.println(user_two + "," + " Choose a pile:");
+      String reader = myScanner.nextLine();
+      // Scenerio 1: user 2 picks pile a and removes a #
+      if (reader.equals("A")||reader.equals("a")) {
+        System.out.println("How many to remove from pile A");
+        String pile_1 = myScanner.nextLine();
+        int pile_num1 = Integer.parseInt(pile_1);
+        pile_a = pile_a - pile_num1;
+        total_items = pile_a + pile_b + pile_c;
+        turn++;
+      }
+      // Scenerio 2: User 2 picks pile b and removes a #
+      else if (reader.equals("B")||reader.equals("b")){
+        System.out.println("How many to remove from pile B");
+        String pile_2 = myScanner.nextLine();
+        int pile_num2 = Integer.parseInt(pile_2);
+        pile_b = pile_b - pile_num2; 
+        total_items = pile_a + pile_b + pile_c;
+        turn++;
+      }
+      // Scenerio 3: User 1 picks pile c & removes a #
+      else if (reader.equals("C")||reader.equals("c")){
+        System.out.println("How many to remove from pile C");
+        String pile_3 = myScanner.nextLine();
+        int pile_num3 = Integer.parseInt(pile_3);
+        pile_c = pile_c - pile_num3;
+        total_items = pile_a + pile_b + pile_c;
+        turn++;
+      }      
+    } 
    }
  }
 }
