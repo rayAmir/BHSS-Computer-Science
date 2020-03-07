@@ -70,7 +70,12 @@ class NimGame{
         pile_c = pile_c - pile_num3;
         total_items = pile_a + pile_b + pile_c;
         turn++;
-      }     
+      }    
+      // Part 7: Exiting the game (the end) 
+      if (total_items == 1){
+      System.out.println(user_two + ", " + "you must take the last remaining counter, " + "so you lose." + user_one + " wins!");
+      break;
+      }
     }
     //User 2 interface
     else if (turn%2 != 0){
@@ -102,8 +107,13 @@ class NimGame{
         pile_c = pile_c - pile_num3;
         total_items = pile_a + pile_b + pile_c;
         turn++;
-      }      
+      }
+      // Part 7: Exiting the game (the end) 
+      if (total_items == 1){
+        System.out.println(user_one + ", " + "you must take the last remaining counter, " + "so you lose." + user_two + " wins!");
+        break;
     } 
    }
+  }
  }
 }
