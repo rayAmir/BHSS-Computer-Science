@@ -27,10 +27,7 @@ class NimGame{
     int pile_b = rand.nextInt(9) + 1;
     int pile_c = rand.nextInt(9) + 1;
     
-//P4: Create the total items running counter and pile item counter
-    int item_a = pile_a;
-    int item_b = pile_b;
-    int item_c = pile_c;
+//P4: Create the pile item counter
     total_items = pile_a + pile_b + pile_c;
  
     while (true){
@@ -44,7 +41,19 @@ class NimGame{
       
       System.out.println(user_one + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
-      // Scenerio 1: user 1 picks pile a and removes a #
+      while (pile_a <= 0 && reader.equals("A")){
+        System.out.println("Pile A is taken. Try another pile.");
+        reader = myScanner.nextLine();
+      }
+      while (pile_c <= 0 && reader.equals("C")){
+        System.out.println("Pile C is taken. Try another pile.");
+        reader = myScanner.nextLine();
+      }
+      while (pile_b <= 0 && reader.equals("B")){
+         System.out.println("Pile B is taken. Try another pile.");
+         reader = myScanner.nextLine();
+      }
+// Scenerio 1: user 1 picks pile a and removes a #
       if (reader.equals("A")||reader.equals("a")){
         System.out.println("How many to remove from pile A");
         int pile_1 = myScanner.nextInt();
@@ -56,6 +65,7 @@ class NimGame{
         total_items = pile_a + pile_b + pile_c;
         turn++;
       }
+      
       // Scenerio 2: User 1 picks pile a and removes a #
       else if (reader.equals("B")||reader.equals("b")){
         System.out.println("How many to remove from pile B");
@@ -95,6 +105,18 @@ class NimGame{
       System.out.println(); //Will Skip to the next Line    
       System.out.println(user_two + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
+      while (pile_a <= 0 && reader.equals("A")){
+        System.out.println("Pile A is taken. Try another pile.");
+        reader = myScanner.nextLine();
+      }
+      while (pile_c <= 0 && reader.equals("C")){
+        System.out.println("Pile C is taken. Try another pile.");
+        reader = myScanner.nextLine();
+      }
+      while (pile_b <= 0 && reader.equals("B")){
+         System.out.println("Pile B is taken. Try another pile.");
+         reader = myScanner.nextLine();
+      }
 // Scenerio 1: user 2 picks pile a and removes a #
       if (reader.equals("A")||reader.equals("a")) {
         System.out.println("How many to remove from pile A");
