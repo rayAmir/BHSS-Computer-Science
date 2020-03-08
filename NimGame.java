@@ -23,9 +23,9 @@ class NimGame{
     
 //P3: Create Pile Randomizer
     Random rand = new Random(); 
-    int pile_a = rand.nextInt(8) + 2;
-    int pile_b = rand.nextInt(8) + 2;
-    int pile_c = rand.nextInt(8) + 2;
+    int pile_a = rand.nextInt(9) + 1;
+    int pile_b = rand.nextInt(9) + 1;
+    int pile_c = rand.nextInt(9) + 1;
     
 //P4: Create the total items running counter and pile item counter
     int item_a = pile_a;
@@ -33,23 +33,26 @@ class NimGame{
     int item_c = pile_c;
     total_items = pile_a + pile_b + pile_c;
  
-//P5: Create the user interface & Scenerios
-    System.out.print("A: " + pile_a);
-    System.out.print(" B: " + pile_b);
-    System.out.print(" C: " + pile_c);
-    System.out.println(); //Will Skip to the next Line
-    
     while (true){
-    //User 1 Interface  
+//User 1 Interface  
     if(turn %2 == 0){
+//P5: Create the user interface & Scenerios
+      System.out.print("A: " + pile_a);
+      System.out.print(" B: " + pile_b);
+      System.out.print(" C: " + pile_c);
+      System.out.println(); //Will Skip to the next Line      
+      
       System.out.println(user_one + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
       // Scenerio 1: user 1 picks pile a and removes a #
-      if (reader.equals("A")||reader.equals("a")) {
+      if (reader.equals("A")||reader.equals("a")){
         System.out.println("How many to remove from pile A");
-        String pile_1 = myScanner.nextLine();
-        int pile_num1 = Integer.parseInt(pile_1);
-        pile_a = pile_a - pile_num1;
+        int pile_1 = myScanner.nextInt();
+        while (pile_1<=0){
+        System.out.println("You must choose at least 1. How many?");
+        pile_1 = myScanner.nextInt();
+        } 
+        pile_a = pile_a - pile_1;
         total_items = pile_a + pile_b + pile_c;
         turn++;
       }
@@ -73,15 +76,20 @@ class NimGame{
       }    
       // Part 7: Exiting the game (the end) 
       if (total_items == 1){
-      System.out.println(user_two + ", " + "you must take the last remaining counter, " + "so you lose." + user_one + " wins!");
+      System.out.println(user_two + ", " + "you must take the last remaining counter, " + "so you lose. " + user_one + " wins!");
       break;
       }
     }
-    //User 2 interface
+//User 2 interface
     else if (turn%2 != 0){
+//P5: Create the user interface & Scenerios
+      System.out.print("A: " + pile_a);
+      System.out.print(" B: " + pile_b);
+      System.out.print(" C: " + pile_c);
+      System.out.println(); //Will Skip to the next Line    
       System.out.println(user_two + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
-      // Scenerio 1: user 2 picks pile a and removes a #
+// Scenerio 1: user 2 picks pile a and removes a #
       if (reader.equals("A")||reader.equals("a")) {
         System.out.println("How many to remove from pile A");
         String pile_1 = myScanner.nextLine();
@@ -90,7 +98,7 @@ class NimGame{
         total_items = pile_a + pile_b + pile_c;
         turn++;
       }
-      // Scenerio 2: User 2 picks pile b and removes a #
+// Scenerio 2: User 2 picks pile b and removes a #
       else if (reader.equals("B")||reader.equals("b")){
         System.out.println("How many to remove from pile B");
         String pile_2 = myScanner.nextLine();
@@ -99,7 +107,7 @@ class NimGame{
         total_items = pile_a + pile_b + pile_c;
         turn++;
       }
-      // Scenerio 3: User 1 picks pile c & removes a #
+// Scenerio 3: User 1 picks pile c & removes a #
       else if (reader.equals("C")||reader.equals("c")){
         System.out.println("How many to remove from pile C");
         String pile_3 = myScanner.nextLine();
@@ -108,9 +116,9 @@ class NimGame{
         total_items = pile_a + pile_b + pile_c;
         turn++;
       }
-      // Part 7: Exiting the game (the end) 
+// Part 7: Exiting the game (the end) 
       if (total_items == 1){
-        System.out.println(user_one + ", " + "you must take the last remaining counter, " + "so you lose." + user_two + " wins!");
+        System.out.println(user_one + ", " + "you must take the last remaining counter, " + "so you lose. " + user_two + " wins!");
         break;
     } 
    }
