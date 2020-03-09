@@ -45,14 +45,15 @@ class NimGame{
         System.out.println("Pile A is taken. Try another pile.");
         reader = myScanner.nextLine();
       }
-      while (pile_c <= 0 && reader.equals("C")){
-        System.out.println("Pile C is taken. Try another pile.");
-        reader = myScanner.nextLine();
-      }
       while (pile_b <= 0 && reader.equals("B")){
          System.out.println("Pile B is taken. Try another pile.");
          reader = myScanner.nextLine();
       }
+      while (pile_c <= 0 && reader.equals("C")){
+        System.out.println("Pile C is taken. Try another pile.");
+        reader = myScanner.nextLine();
+      }
+ 
 // Scenerio 1: user 1 picks pile a and removes a #
       if (reader.equals("A")||reader.equals("a")){
         System.out.println("How many to remove from pile A");
@@ -61,8 +62,16 @@ class NimGame{
         System.out.println("Illegal Move. Try Again.");
         pile_1 = myScanner.nextInt();
         } 
+        int p1 = pile_a;
         pile_a = pile_a - pile_1;
         total_items = pile_a + pile_b + pile_c;
+        while ((pile_a<=0) && (pile_b<=0) && (pile_c<=0)){
+        System.out.println("You must leave behind 1 item. Try again.");
+        pile_1 = myScanner.nextInt();
+        pile_a = p1;
+        pile_a = pile_a - pile_1;
+        total_items = pile_a + pile_b + pile_c;
+        } 
         turn++;
       }
       
@@ -74,8 +83,16 @@ class NimGame{
         System.out.println("Illegal Move. Try Again.");
         pile_2 = myScanner.nextInt();
         } 
-        pile_b = pile_b - pile_2; 
+        int p2 = pile_b;
+        pile_b = pile_b - pile_2;
         total_items = pile_a + pile_b + pile_c;
+        while ((pile_a<=0) && (pile_b<=0) && (pile_c<=0)){
+        System.out.println("You must leave behind 1 item. Try again.");
+        pile_2 = myScanner.nextInt();
+        pile_b = p2;
+        pile_b = pile_b - pile_2;
+        total_items = pile_a + pile_b + pile_c;
+        } 
         turn++;
       }
       // Scenerio 3: User 1 picks pile c & removes a #
@@ -86,8 +103,16 @@ class NimGame{
         System.out.println("Illegal Move. Try Again.");
         pile_3 = myScanner.nextInt();
         } 
+        int p3 = pile_c;
         pile_c = pile_c - pile_3;
         total_items = pile_a + pile_b + pile_c;
+        while ((pile_a<=0) && (pile_b<=0) && (pile_c<=0)){
+        System.out.println("You must leave behind 1 item. Try again.");
+        pile_3 = myScanner.nextInt();
+        pile_c = p3;
+        pile_c = pile_c - pile_3;
+        total_items = pile_a + pile_b + pile_c;
+        } 
         turn++;
       }    
       // Part 7: Exiting the game (the end) 
@@ -105,18 +130,20 @@ class NimGame{
       System.out.println(); //Will Skip to the next Line    
       System.out.println(user_two + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
+      
       while (pile_a <= 0 && reader.equals("A")){
         System.out.println("Pile A is taken. Try another pile.");
-        reader = myScanner.nextLine();
-      }
-      while (pile_c <= 0 && reader.equals("C")){
-        System.out.println("Pile C is taken. Try another pile.");
         reader = myScanner.nextLine();
       }
       while (pile_b <= 0 && reader.equals("B")){
          System.out.println("Pile B is taken. Try another pile.");
          reader = myScanner.nextLine();
       }
+      while (pile_c <= 0 && reader.equals("C")){
+        System.out.println("Pile C is taken. Try another pile.");
+        reader = myScanner.nextLine();
+      }
+     
 // Scenerio 1: user 2 picks pile a and removes a #
       if (reader.equals("A")||reader.equals("a")) {
         System.out.println("How many to remove from pile A");
@@ -124,9 +151,17 @@ class NimGame{
         while ((pile_4<=0) || (pile_4>pile_a)){
         System.out.println("Illegal Move. Try Again.");
         pile_4 = myScanner.nextInt();
-        } 
+        }
+        int p4 = pile_a;
         pile_a = pile_a - pile_4;
         total_items = pile_a + pile_b + pile_c;
+        while ((pile_a<=0) && (pile_b<=0) && (pile_c<=0)){
+        System.out.println("You must leave behind 1 item. Try again.");
+        pile_4 = myScanner.nextInt();
+        pile_a = p4;
+        pile_a = pile_a - pile_4;
+        total_items = pile_a + pile_b + pile_c;
+        } 
         turn++;
       }
 // Scenerio 2: User 2 picks pile b and removes a #
@@ -136,9 +171,17 @@ class NimGame{
         while ((pile_5<=0) || (pile_5>pile_b)){
         System.out.println("Illegal Move. Try Again.");
         pile_5 = myScanner.nextInt();
-        } 
-        pile_b = pile_b - pile_5; 
+        }
+        int p5 = pile_b;
+        pile_b = pile_b - pile_5;
         total_items = pile_a + pile_b + pile_c;
+        while ((pile_a<=0) && (pile_b<=0) && (pile_c<=0)){
+        System.out.println("You must leave behind 1 item. Try again.");
+        pile_5 = myScanner.nextInt();
+        pile_b = p5;
+        pile_b = pile_b - pile_5;
+        total_items = pile_a + pile_b + pile_c;
+        } 
         turn++;
       }
 // Scenerio 3: User 1 picks pile c & removes a #
@@ -149,16 +192,25 @@ class NimGame{
         System.out.println("Illegal Move. Try Again.");
         pile_6 = myScanner.nextInt();
         } 
+        int p6 = pile_c;
         pile_c = pile_c - pile_6;
         total_items = pile_a + pile_b + pile_c;
+        while ((pile_a<=0) && (pile_b<=0) && (pile_c<=0)){
+        System.out.println("You must leave behind 1 item. Try again.");
+        pile_6 = myScanner.nextInt();
+        pile_c = p6;
+        pile_c = pile_c - pile_6;
+        total_items = pile_a + pile_b + pile_c;
+        } 
         turn++;
       }
 // Part 7: Exiting the game (the end) 
       if (total_items == 1){
         System.out.println(user_one + ", " + "you must take the last remaining counter, " + "so you lose. " + user_two + " wins!");
         break;
-    } 
+    }
    }
   }
  }
 }
+
