@@ -34,11 +34,32 @@ class NimGame{
 //User 1 Interface  
     if(turn %2 == 0){
 //P5: Create the user interface & Scenerios
-      System.out.print("A: " + pile_a);
-      System.out.print(" B: " + pile_b);
-      System.out.print(" C: " + pile_c);
-      System.out.println(); //Will Skip to the next Line      
-      
+     int temp_a = pile_a;
+     int temp_b = pile_b;
+     int temp_c = pile_c;
+     
+     System.out.println("A" + "B" + "C");
+     while(temp_a>0 || temp_b>0||temp_c>0){
+       if(temp_a>0){
+        System.out.print("*");
+        temp_a--;
+       } else{
+        System.out.print(" "); 
+       }
+        if(temp_b>0){
+        System.out.print("*");
+        temp_b--;
+       } else{
+        System.out.print(" "); 
+       }
+        if(temp_c>0){
+        System.out.print("*");
+        temp_c--;
+       } else{
+        System.out.print(" "); 
+       }
+       System.out.println("");
+     }    
       System.out.println(user_one + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
       while (pile_a <= 0 && reader.equals("A")){
@@ -124,10 +145,32 @@ class NimGame{
 //User 2 interface
     else if (turn%2 != 0){
 //P5: Create the user interface & Scenerios
-      System.out.print(" A: " + pile_a);
-      System.out.print(" B: " + pile_b);
-      System.out.print(" C: " + pile_c);
-      System.out.println(); //Will Skip to the next Line    
+     int temp_a = pile_a;
+     int temp_b = pile_b;
+     int temp_c = pile_c;
+     
+     System.out.println("A" + "B" + "C");
+     while(temp_a>0 || temp_b>0||temp_c>0){
+       if(temp_a>0){
+        System.out.print("*");
+        temp_a--;
+       } else{
+        System.out.print(" "); 
+       }
+        if(temp_b>0){
+        System.out.print("*");
+        temp_b--;
+       } else{
+        System.out.print(" "); 
+       }
+        if(temp_c>0){
+        System.out.print("*");
+        temp_c--;
+       } else{
+        System.out.print(" "); 
+       }
+       System.out.println("");
+     }
       System.out.println(user_two + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
       
