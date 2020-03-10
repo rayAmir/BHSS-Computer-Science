@@ -2,7 +2,7 @@
 * Date: March 7, 2020
 * Name: Rayyan Amir
 * Teacher: Mr. Ho
-* Description: Club Fair Assignment
+* Description: Nim Game Assignment
 */
 
 //P1: Start & initilize Code
@@ -27,18 +27,21 @@ class NimGame{
     int pile_b = rand.nextInt(9) + 1;
     int pile_c = rand.nextInt(9) + 1;
     
-//P4: Create the pile item counter
+//P4: Create the total items counter
     total_items = pile_a + pile_b + pile_c;
  
     while (true){
-//User 1 Interface  
+//P5: User 1 Interface & Scenerios are below  
     if(turn %2 == 0){
-//P5: Create the user interface & Scenerios
      int temp_a = pile_a;
      int temp_b = pile_b;
      int temp_c = pile_c;
      
-     System.out.println("A" + "B" + "C");
+     /* This is the code outputting the # of items in each pile in columns.
+     *It does this by taking the intial values of pile a b and c and printing each item in 1 row 
+     *Once all three piles items have been outputted in the row, the println(""); function at the bottom of this code skips to the nextline
+     *where the pile items are outputted once again. The code will do this until the "temp" values of the piles are equal to 0.
+     */
      while(temp_a>0 || temp_b>0||temp_c>0){
        if(temp_a>0){
         System.out.print("*");
@@ -46,13 +49,13 @@ class NimGame{
        } else{
         System.out.print(" "); 
        }
-        if(temp_b>0){
+       if(temp_b>0){
         System.out.print("*");
         temp_b--;
        } else{
         System.out.print(" "); 
        }
-        if(temp_c>0){
+       if(temp_c>0){
         System.out.print("*");
         temp_c--;
        } else{
@@ -60,6 +63,9 @@ class NimGame{
        }
        System.out.println("");
      }    
+      System.out.println("A" + "B" + "C");
+      
+//User 1 interface: Picking a pile     
       System.out.println(user_one + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
       while (pile_a <= 0 && reader.equals("A")){
@@ -76,7 +82,7 @@ class NimGame{
       }
  
 // Scenerio 1: user 1 picks pile a and removes a #
-      if (reader.equals("A")||reader.equals("a")){
+      if (reader.equals("A")){
         System.out.println("How many to remove from pile A");
         int pile_1 = myScanner.nextInt();
         while ((pile_1<=0) || (pile_1>pile_a)){
@@ -96,8 +102,8 @@ class NimGame{
         turn++;
       }
       
-      // Scenerio 2: User 1 picks pile a and removes a #
-      else if (reader.equals("B")||reader.equals("b")){
+// Scenerio 2: User 1 picks pile b and removes a #
+      else if (reader.equals("B")){
         System.out.println("How many to remove from pile B");
         int pile_2 = myScanner.nextInt();
         while ((pile_2<=0) || (pile_2>pile_b)){
@@ -116,8 +122,9 @@ class NimGame{
         } 
         turn++;
       }
-      // Scenerio 3: User 1 picks pile c & removes a #
-      else if (reader.equals("C")||reader.equals("c")){
+      
+// Scenerio 3: User 1 picks pile c & removes a #
+      else if (reader.equals("C")){
         System.out.println("How many to remove from pile C");
         int pile_3 = myScanner.nextInt();
         while ((pile_3<=0) || (pile_3>pile_c)){
@@ -136,20 +143,19 @@ class NimGame{
         } 
         turn++;
       }    
-      // Part 7: Exiting the game (the end) 
+ // Part 6: Exiting the game (the end) 
       if (total_items == 1){
       System.out.println(user_two + ", " + "you must take the last remaining counter, " + "so you lose. " + user_one + " wins!");
       break;
       }
     }
-//User 2 interface
+//P5: User 2 interface & Scenerios are below
     else if (turn%2 != 0){
-//P5: Create the user interface & Scenerios
      int temp_a = pile_a;
      int temp_b = pile_b;
      int temp_c = pile_c;
-     
-     System.out.println("A" + "B" + "C");
+    
+     // Explain How this loop is working     
      while(temp_a>0 || temp_b>0||temp_c>0){
        if(temp_a>0){
         System.out.print("*");
@@ -157,20 +163,23 @@ class NimGame{
        } else{
         System.out.print(" "); 
        }
-        if(temp_b>0){
+       if(temp_b>0){
         System.out.print("*");
         temp_b--;
        } else{
         System.out.print(" "); 
        }
-        if(temp_c>0){
+       if(temp_c>0){
         System.out.print("*");
         temp_c--;
        } else{
-        System.out.print(" "); 
+       System.out.print(" "); 
        }
        System.out.println("");
      }
+       System.out.println("A" + "B" + "C");
+      
+//User 2 interface: Picking a pile  
       System.out.println(user_two + "," + " Choose a pile:");
       String reader = myScanner.nextLine();
       
@@ -188,7 +197,7 @@ class NimGame{
       }
      
 // Scenerio 1: user 2 picks pile a and removes a #
-      if (reader.equals("A")||reader.equals("a")) {
+      if (reader.equals("A")) {
         System.out.println("How many to remove from pile A");
         int pile_4 = myScanner.nextInt();
         while ((pile_4<=0) || (pile_4>pile_a)){
@@ -208,7 +217,7 @@ class NimGame{
         turn++;
       }
 // Scenerio 2: User 2 picks pile b and removes a #
-      else if (reader.equals("B")||reader.equals("b")){
+      else if (reader.equals("B")){
         System.out.println("How many to remove from pile B");
         int pile_5 = myScanner.nextInt();
         while ((pile_5<=0) || (pile_5>pile_b)){
@@ -227,8 +236,8 @@ class NimGame{
         } 
         turn++;
       }
-// Scenerio 3: User 1 picks pile c & removes a #
-      else if (reader.equals("C")||reader.equals("c")){
+// Scenerio 3: User 2 picks pile c & removes a #
+      else if (reader.equals("C")){
         System.out.println("How many to remove from pile C");
         int pile_6 = myScanner.nextInt();
         while ((pile_6<=0) || (pile_6>pile_c)){
@@ -247,7 +256,7 @@ class NimGame{
         } 
         turn++;
       }
-// Part 7: Exiting the game (the end) 
+// Part 6: Exiting the game (the end) 
       if (total_items == 1){
         System.out.println(user_one + ", " + "you must take the last remaining counter, " + "so you lose. " + user_two + " wins!");
         break;
@@ -256,4 +265,3 @@ class NimGame{
   }
  }
 }
-
